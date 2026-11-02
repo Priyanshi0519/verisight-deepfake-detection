@@ -1,0 +1,45 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PyTorch Checkpoints & Large Model Files (GitHub 100MB limit)
+saved_models/*.pth
+*.pth
+*.pt
+*.bin
+*.onnx
+*.tflite
+!saved_models/.gitkeep
+
+# Datasets and raw media
+data/raw/*
+data/processed/*
+data/interim/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/interim/.gitkeep
+*.mp4
+*.avi
+*.mov
+*.zip
+*.tar.gz
+
+# Environments & virtualenvs
+.env
+.venv
+env/
+venv/
+ENV/
+build/
+dist/
+
+# IDE & OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs & temp files
+*.log
+scratch/

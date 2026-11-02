@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VeriSight AI Detector</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <div class="header">
+      <div class="brand">
+        <img src="icons/icon-48.png" alt="Logo" class="logo">
+        <div>
+          <h2>VeriSight</h2>
+          <span class="subtitle">AI & Deepfake Detector</span>
+        </div>
+      </div>
+      <div id="server-status" class="status-badge status-checking">
+        <span class="dot"></span>
+        <span id="status-text">Checking...</span>
+      </div>
+    </div>
+
+    <!-- Controls / Settings -->
+    <div class="section">
+      <h3>Active Protection</h3>
+      
+      <div class="control-row">
+        <label for="toggle-autoscan" class="control-label">
+          <span>Auto-Scan on Scroll</span>
+          <span class="hint">Scans visible images as you browse</span>
+        </label>
+        <label class="switch">
+          <input type="checkbox" id="toggle-autoscan" checked>
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+      <div class="control-row slider-row">
+        <label for="dwell-slider" class="control-label">
+          <span>Dwell Delay Buffer</span>
+          <span class="hint">Prevents lag while fast scrolling</span>
+        </label>
+        <div class="slider-container">
+          <input type="range" id="dwell-slider" min="200" max="1500" step="100" value="500">
+          <span id="dwell-val">500ms</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Manual URL Verification -->
+    <div class="section">
+      <h3>On-Demand Verification</h3>
+      <div class="input-group">
+        <input type="text" id="manual-url" placeholder="Paste image URL to verify...">
+        <button id="check-btn">Verify</button>
+      </div>
+      
+      <div id="manual-result" class="result-box hidden">
+        <div class="result-header">
+          <span id="res-label">Real</span>
+          <span id="res-conf">94%</span>
+        </div>
+        <div class="result-metrics">
+          <div>Spatial: <span id="res-spatial">--</span></div>
+          <div>Spectral (FFT): <span id="res-spectral">--</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <span>Dual-Stream Spatial + 2D FFT Spectral Ensemble</span>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

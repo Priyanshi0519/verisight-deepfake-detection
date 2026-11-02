@@ -1,0 +1,143 @@
+/* VeriSight Content Script Styles */
+
+.verisight-badge-wrapper {
+  position: absolute !important;
+  z-index: 2147483640 !important;
+  pointer-events: auto !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  user-select: none !important;
+}
+
+.verisight-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  padding: 4px 8px !important;
+  border-radius: 20px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.3px !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35) !important;
+  cursor: pointer !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease !important;
+}
+
+.verisight-badge:hover {
+  transform: scale(1.06) !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* Badge States */
+.verisight-badge.verisight-scanning {
+  background: rgba(15, 23, 42, 0.85) !important;
+  border: 1px solid rgba(6, 182, 212, 0.5) !important;
+  color: #67e8f9 !important;
+}
+
+.verisight-badge.verisight-real {
+  background: rgba(6, 78, 59, 0.85) !important;
+  border: 1px solid rgba(16, 185, 129, 0.6) !important;
+  color: #a7f3d0 !important;
+}
+
+.verisight-badge.verisight-ai {
+  background: rgba(127, 29, 29, 0.88) !important;
+  border: 1px solid rgba(239, 68, 68, 0.7) !important;
+  color: #fecaca !important;
+}
+
+.verisight-badge.verisight-deepfake {
+  background: rgba(124, 45, 18, 0.88) !important;
+  border: 1px solid rgba(249, 115, 22, 0.7) !important;
+  color: #fed7aa !important;
+}
+
+.verisight-badge.verisight-uncertain {
+  background: rgba(120, 53, 15, 0.88) !important;
+  border: 1px solid rgba(245, 158, 11, 0.7) !important;
+  color: #fde68a !important;
+}
+
+.verisight-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: currentColor;
+  animation: verisight-pulse 1.4s infinite ease-in-out;
+}
+
+@keyframes verisight-pulse {
+  0% { transform: scale(0.8); opacity: 0.6; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.8); opacity: 0.6; }
+}
+
+/* Detail Popover Card */
+.verisight-modal-card {
+  position: absolute !important;
+  top: 30px !important;
+  right: 0 !important;
+  width: 250px !important;
+  background: rgba(15, 23, 42, 0.95) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 10px !important;
+  padding: 12px 14px !important;
+  color: #f1f5f9 !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5) !important;
+  z-index: 2147483645 !important;
+  font-size: 12px !important;
+  line-height: 1.4 !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+.verisight-card-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-bottom: 8px !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  padding-bottom: 5px !important;
+}
+
+.verisight-close-btn {
+  cursor: pointer !important;
+  opacity: 0.7 !important;
+  font-size: 14px !important;
+}
+.verisight-close-btn:hover {
+  opacity: 1 !important;
+}
+
+.verisight-metric-row {
+  display: flex !important;
+  justify-content: space-between !important;
+  margin: 5px 0 !important;
+}
+
+.verisight-progress-bar {
+  width: 100% !important;
+  height: 6px !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-radius: 3px !important;
+  overflow: hidden !important;
+  margin: 6px 0 10px 0 !important;
+}
+
+.verisight-progress-fill {
+  height: 100% !important;
+  transition: width 0.4s ease !important;
+}
+
+.verisight-disclaimer {
+  font-size: 10px !important;
+  color: #94a3b8 !important;
+  margin-top: 8px !important;
+  font-style: italic !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  padding-top: 6px !important;
+}

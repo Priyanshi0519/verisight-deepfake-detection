@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VeriSight AI & Deepfake Detection - Live Test Bench</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #0b0f19;
+      color: #e2e8f0;
+      margin: 0;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+    h1 {
+      font-size: 32px;
+      color: #38bdf8;
+      margin-bottom: 8px;
+    }
+    p.subtitle {
+      color: #94a3b8;
+      font-size: 15px;
+    }
+    .instructions {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 10px;
+      padding: 16px 22px;
+      margin-bottom: 35px;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .instructions code {
+      background: #0f172a;
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #38bdf8;
+    }
+    .instructions ol {
+      margin-left: 20px;
+      margin-top: 8px;
+    }
+    .category-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 45px 0 20px 0;
+      padding-bottom: 8px;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    }
+    .category-header h2 {
+      font-size: 20px;
+      margin: 0;
+    }
+    .category-tag {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .category-deepfake {
+      color: #fb923c;
+    }
+    .tag-deepfake {
+      background: rgba(251, 146, 60, 0.15);
+      border: 1px solid rgba(251, 146, 60, 0.4);
+      color: #fb923c;
+    }
+    .category-ai {
+      color: #f87171;
+    }
+    .tag-ai {
+      background: rgba(248, 113, 113, 0.15);
+      border: 1px solid rgba(248, 113, 113, 0.4);
+      color: #f87171;
+    }
+    .category-real {
+      color: #34d399;
+    }
+    .tag-real {
+      background: rgba(52, 211, 153, 0.15);
+      border: 1px solid rgba(52, 211, 153, 0.4);
+      color: #34d399;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+    }
+    .card {
+      background: #111827;
+      border: 1px solid #1f2937;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+    }
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 6px;
+      font-size: 15px;
+      color: #f1f5f9;
+    }
+    .card p {
+      font-size: 12px;
+      color: #94a3b8;
+      margin-bottom: 12px;
+      flex-grow: 1;
+    }
+    .img-wrapper {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #000;
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .img-wrapper img {
+      display: block;
+      width: 100%;
+      max-height: 320px;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>VeriSight Live Test Bench</h1>
+      <p class="subtitle">Benchmarking Deepfake Facial Manipulations, Full Generative AI, and Real Photography</p>
+    </header>
+
+    <div class="instructions">
+      <strong>Testing Instructions:</strong>
+      <ol>
+        <li>Make sure the backend is running in PowerShell: <code>python src/inference/app.py</code></li>
+        <li>Scroll down slowly. When an image stays in your view for &ge;0.5 seconds, the extension displays the <strong>Scanning...</strong> badge and then overlays the verdict.</li>
+        <li>Notice the three distinct categories below: <strong>Deepfake Manipulations</strong>, <strong>Generative AI</strong>, and <strong>Pristine Real Photos</strong>.</li>
+        <li><strong>Click on any badge</strong> to expand the forensic details card and inspect the <strong>Spatial Texture vs. 2D FFT Spectral score breakdown</strong>.</li>
+      </ol>
+    </div>
+
+    <!-- SECTION 1: DEEPFAKE MODIFIED & PARTIALLY MANIPULATED FACES -->
+    <div class="category-header">
+      <h2 class="category-deepfake">🔶 Category 1: Deepfake Modified Media (Partially Altered / Face-Swapped)</h2>
+      <span class="category-tag tag-deepfake">Modified Media</span>
+    </div>
+    <p style="font-size: 12px; color: #94a3b8; margin-top: -10px; margin-bottom: 18px;">
+      In these images, an authentic real photograph was digitally manipulated using deep learning: specific facial regions (eyes, mouth, nose, facial structure) were synthesized and blended.
+    </p>
+
+    <div class="grid">
+      <!-- Deepfake 1: Multi-feature modified -->
+      <div class="card">
+        <h3>Sample 1: Deepfake Face (Eyes & Mouth Replaced)</h3>
+        <p>Real subject photo where eyes and mouth were reenacted using an autoencoder. Exhibits blending seams and boundary gradient shifts.</p>
+        <div class="img-wrapper">
+          <img src="test_images/deepfake_face_modified_easy.jpg" alt="Deepfake Face Modified 1">
+        </div>
+      </div>
+
+      <!-- Deepfake 2: Mid manipulation -->
+      <div class="card">
+        <h3>Sample 2: Deepfake Face (Facial Feature Swap)</h3>
+        <p>Targeted facial attribute modification. The surrounding background is real, but the inner facial zone contains generative interpolation artifacts.</p>
+        <div class="img-wrapper">
+          <img src="test_images/deepfake_face_modified_mid.jpg" alt="Deepfake Face Modified 2">
+        </div>
+      </div>
+
+      <!-- Deepfake 3: Subtle manipulation -->
+      <div class="card">
+        <h3>Sample 3: Deepfake Face (Subtle Morphing)</h3>
+        <p>Subtle single-attribute manipulation designed to evade simple perceptual filters, detectable via spatial texture boundary analysis.</p>
+        <div class="img-wrapper">
+          <img src="test_images/deepfake_face_subtle_manipulation.jpg" alt="Deepfake Face Subtle">
+        </div>
+      </div>
+    </div>
+
+
+    <!-- SECTION 2: FULLY AI-GENERATED IMAGES -->
+    <div class="category-header">
+      <h2 class="category-ai">🔴 Category 2: Full Generative AI Images (Text-to-Image Synthesis)</h2>
+      <span class="category-tag tag-ai">Full Generative AI</span>
+    </div>
+    <p style="font-size: 12px; color: #94a3b8; margin-top: -10px; margin-bottom: 18px;">
+      Synthesized from noise prompts using Latent Diffusion Models (Stable Diffusion, Midjourney). The entire canvas exhibits periodic upsampling harmonics in 2D FFT.
+    </p>
+
+    <div class="grid">
+      <!-- AI 1 -->
+      <div class="card">
+        <h3>Sample 4: Stable Diffusion Sci-Fi Scene</h3>
+        <p>Synthesized by Latent Diffusion autoencoder. Contains periodic upsampling artifacts in the frequency domain.</p>
+        <div class="img-wrapper">
+          <img src="test_images/ai_stable_diffusion_1.png" alt="AI Generated Sci-Fi Scene">
+        </div>
+      </div>
+
+      <!-- AI User Sample 1: Ramen Women -->
+      <div class="card">
+        <h3>Sample 4B: AI-Generated Surreal Portrait (Ramen Bowl)</h3>
+        <p>Complex generative AI synthesis with multiple subjects, verified via 2D FFT spectral high-frequency harmonics.</p>
+        <div class="img-wrapper">
+          <img src="test_images/user_ai_ramen_women.png" alt="AI Ramen Women">
+        </div>
+      </div>
+
+      <!-- AI User Sample 2: Blue Dress -->
+      <div class="card">
+        <h3>Sample 4C: AI-Generated Photorealistic Portrait (Blue Dress)</h3>
+        <p>Photorealistic generative AI portrait exhibiting synthetic frequency distribution and CLIP semantic cues.</p>
+        <div class="img-wrapper">
+          <img src="test_images/user_ai_blue_dress.png" alt="AI Blue Dress Woman">
+        </div>
+      </div>
+
+      <!-- AI 2 -->
+      <div class="card">
+        <h3>Sample 5: Stable Diffusion Cyberpunk Architecture</h3>
+        <p>Full-frame diffusion generation with characteristic latent spectral cross-peaks in 2D FFT.</p>
+        <div class="img-wrapper">
+          <img src="test_images/ai_stable_diffusion_2.png" alt="AI Generated Architecture">
+        </div>
+      </div>
+
+      <!-- AI 3 -->
+      <div class="card">
+        <h3>Sample 6: Stable Diffusion Concept Art</h3>
+        <p>AI synthesized concept art exhibiting transposed convolution grid harmonics.</p>
+        <div class="img-wrapper">
+          <img src="test_images/ai_stable_diffusion_3.png" alt="AI Concept Art">
+        </div>
+      </div>
+
+      <!-- AI 4 -->
+      <div class="card">
+        <h3>Sample 7: Synthetic Benchmark Sample</h3>
+        <p>From the CIFAKE benchmark test set (Synthetic generative sample).</p>
+        <div class="img-wrapper">
+          <img src="test_images/cifake_ai_synthetic_1.jpg" alt="Synthetic Benchmark Sample" style="image-rendering: pixelated; max-width: 200px;">
+        </div>
+      </div>
+    </div>
+
+
+    <!-- SECTION 3: GENUINE REAL PHOTOGRAPHS -->
+    <div class="category-header">
+      <h2 class="category-real">🟢 Category 3: Genuine Real-World Photographs (Pristine Camera)</h2>
+      <span class="category-tag tag-real">Pristine Real</span>
+    </div>
+    <p style="font-size: 12px; color: #94a3b8; margin-top: -10px; margin-bottom: 18px;">
+      Captured through physical camera lenses and optical sensors. Naturally follows the universal 1/f² power decay without periodic upsampling grid artifacts.
+    </p>
+
+    <div class="grid">
+      <!-- Real 1 -->
+      <div class="card">
+        <h3>Sample 8: Real Camera Benchmark Photograph 1</h3>
+        <p>Natural photograph captured by a physical camera sensor adhering to smooth 1/f² power decay.</p>
+        <div class="img-wrapper">
+          <img src="test_images/cifake_real_1.jpg" alt="Real Photograph 1" style="image-rendering: pixelated; max-width: 200px;">
+        </div>
+      </div>
+
+      <!-- Real 2 -->
+      <div class="card">
+        <h3>Sample 9: Real Camera Benchmark Photograph 2</h3>
+        <p>Pristine real-world scene with natural optical sensor noise and smooth 2D FFT spectrum.</p>
+        <div class="img-wrapper">
+          <img src="test_images/cifake_real_2.jpg" alt="Real Photograph 2" style="image-rendering: pixelated; max-width: 200px;">
+        </div>
+      </div>
+
+      <!-- Real 3 -->
+      <div class="card">
+        <h3>Sample 10: Real Nature Photograph</h3>
+        <p>Physical lens capture with natural organic textures.</p>
+        <div class="img-wrapper">
+          <img src="test_images/cifake_real_3.jpg" alt="Real Photograph 3" style="image-rendering: pixelated; max-width: 200px;">
+        </div>
+      </div>
+
+      <!-- Real 4 -->
+      <div class="card">
+        <h3>Sample 11: Real Physical Capture</h3>
+        <p>Natural scene devoid of synthetic transposed convolution grid artifacts.</p>
+        <div class="img-wrapper">
+          <img src="test_images/cifake_real_4.jpg" alt="Real Photograph 4" style="image-rendering: pixelated; max-width: 200px;">
+        </div>
+      </div>
+
+      <!-- Real Face 1 -->
+      <div class="card">
+        <h3>Sample 12: High-Resolution Real Human Portrait 1</h3>
+        <p>Authentic human portrait captured by standard camera sensor with natural skin pores and eye reflections.</p>
+        <div class="img-wrapper">
+          <img src="test_images/real_human_face_1.jpg" alt="Real Human Face 1">
+        </div>
+      </div>
+
+      <!-- Real Face 2 -->
+      <div class="card">
+        <h3>Sample 13: High-Resolution Real Human Portrait 2</h3>
+        <p>Pristine authentic subject photograph exhibiting smooth continuous natural facial gradients.</p>
+        <div class="img-wrapper">
+          <img src="test_images/real_human_face_2.jpg" alt="Real Human Face 2">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
